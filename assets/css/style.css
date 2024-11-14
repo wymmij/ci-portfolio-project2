@@ -1,0 +1,79 @@
+/* ------ Global Style */
+body {
+    text-align: center;
+}
+
+
+/* ------ Heading */
+h1 {
+    font-size: 3em;
+}
+
+
+/* ------ Configuration Area */
+.parameters {
+    border: 3px solid gray;
+    border-radius: 5px;
+    width: fit-content;
+    margin: auto;
+    padding: 10px 0;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+}
+.parameter {
+    display: flex;
+    justify-content: center;
+}
+.parameter legend {
+    font-size: 0.9em;
+}
+.parameter select {
+    margin-left: 0;
+}
+
+
+/* ------ Trigger Question Area */
+#question {
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+
+/* ------ Answer Area*/
+input {
+    caret-color: grey;
+}
+#answer-box {
+    text-align: center;
+}
+#answer-check {
+    display: block;
+    margin: 5px auto 0;
+}
+
+
+/* ------ Score Area */
+.score-area {
+    border: 3px solid gray;
+    border-radius: 5px;
+    max-width: 200px;
+    margin: auto;
+    padding: 10px 0;
+    background-color: aqua;
+}
+.score {
+    display: flex;
+}
+.score span:first-of-type {
+    flex: 0 0 50%;
+    text-align: right;
+    padding-right: 5px;
+}
+.score span:last-of-type {
+    margin-left: 0;
+}
+#correct,
+#incorrect {
+    font-weight: 700;
+}
