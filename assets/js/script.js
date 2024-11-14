@@ -67,6 +67,62 @@ function buildDataMenu() {
 }
 
 /**
+ * Returns the currently selected conjugation data set, which is an
+ * array of objects.
+ * @returns {array}
+ */
+function getConjugationData() {
+    const dataSet = document.getElementById('data-set');
+    const dataSetChoice = dataSet.getAttribute('data-choice');
+
+    return conjugationDataSets[dataSetChoice];
+}
+
+/**
+ * Returns an array of the names of the grammatical forms currently
+ * being tested.
+ */
+function getForms() {
+    let conjugationForms = new Array();
+    const dataForms = getConjugationData()[0];
+    for (const key in dataForms) {
+        conjugationForms.push(key);
+    }
+    return conjugationForms;
+}
+
+/**
+ * Creates the HTML label and input elements to configure which grammatical
+ * form the question and answer will trigger and test on.
+ */
+function buildConjugationMenus() {
+    const questionForms = document.getElementById('question-form');
+    const answerForms = document.getElementById('answer-form');
+    const conjugationForms = getForms();
+
+    for (const form of conjugationForms) {
+        // <label> elements with 'for' attributes
+        let lbl = document.createElement('label');
+        lbl.textContent = displayFormat(form);
+        lbl.setAttribute('for', form);
+        questionForms.appendChild(lbl);
+        answerForms.appendChild(lbl.cloneNode(true));
+
+        // <input> elements with 'type', 'value', 'name' and 'id' attributes
+        let inptQ = document.createElement('input');
+        inptQ.setAttribute('type', 'radio');
+        inptQ.setAttribute('value', form);
+        let inptA = inptQ.cloneNode(true);
+        inptQ.setAttribute('name', 'question');
+        inptQ.setAttribute('id', `question-${form}`);
+        inptA.setAttribute('name', 'answer');
+        inptA.setAttribute('id', `answer-${form}`);
+        questionForms.appendChild(inptQ);
+        answerForms.appendChild(inptA);
+    }
+}
+
+/**
  * Returns a titlecase string more appropriate (nicer) for textual display
  * @param {string} str - the string to format
  * @returns {string} The ‘display’ titlecase version of the input string
@@ -75,10 +131,6 @@ function displayFormat(str) {
     const format = str.replace(/([a-z])([A-Z])/g, '$1 $2');
 
     return format.charAt(0).toUpperCase() + format.slice(1);
-}
-
-function buildConjugationMenus() {
-    //
 }
 
 function run() {
