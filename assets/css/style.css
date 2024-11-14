@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@200;300;400;500;600;700&family=Mystery+Quest&display=swap');
+
 /* ------ Global Style */
 body {
+    font-family: "Krub", sans-serif;
     text-align: center;
 }
 
 
 /* ------ Heading */
 h1 {
+    font-family: "Mystery Quest", system-ui;
     font-size: 3em;
 }
 

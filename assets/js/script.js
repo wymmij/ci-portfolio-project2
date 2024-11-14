@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // runs whenever a different data set is selected
     dataSet.addEventListener('change', (event) => {
         dataSet.setAttribute('data-choice', event.target.value);
+        run();
     });
 
     // runs whenever a different question trigger form is selected
