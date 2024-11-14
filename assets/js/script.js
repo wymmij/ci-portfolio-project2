@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionForms = document.getElementById('question-form');
     const answerForms = document.getElementById('answer-form');
     const answerCheck = document.getElementById('answer-check');
+    const answerBox = document.getElementById('answer-box');
 
     // Event Listeners
     // runs whenever a different data set is selected
@@ -22,10 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // runs whenever a different answer form to be tested on is selected
     answerForms.addEventListener('change', (event) => {
         answerForms.setAttribute('data-choice', event.target.value);
+        run();
     });
 
     // ensures the ‘Submit Answer’ button processes the answer when mouse-clicked
     answerCheck.addEventListener('click', checkAnswer);
+
+    // ensures that pressing the return key will also check the answer
+    answerBox.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            checkAnswer();
+        }
+    });
 
     // create the menu for choosing between different conjugation data sets
     buildDataMenu();
