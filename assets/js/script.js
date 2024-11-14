@@ -174,6 +174,53 @@ function run() {
     question.textContent = conjugationData[choice][questionChoice];
 }
 
+/**
+ * Checks the answer submitted and changes the score accordingly.
+ * Unless the ‘answer-hide’ parameter is checked, incorrect answers are also
+ * displayed for 1.5 seconds.
+ * Finally, a new question is generated.
+ */
 function checkAnswer() {
-    //
+    const conjugationData = getConjugationData();
+    const question = document.getElementById('question');
+    const answerForms = document.getElementById('answer-form');
+    const choice = question.getAttribute('data-choice');
+    const answerChoice = answerForms.getAttribute('data-choice');
+    const userAnswer = document.getElementById('answer-box').value;
+    const correctAnswer = conjugationData[choice][answerChoice];
+    const answerHide = document.getElementById('answer-hide');
+    const answerRecent = document.getElementById('answer-recent');
+
+    if (userAnswer === correctAnswer) {
+        increaseCorrect(); // correct answer tally is increased
+    } else {
+        increaseIncorrect(); // incorrect answer tally is increased
+        // also, an incorrect answer is conditionally displayed
+        if (!answerHide.checked) {
+            answerRecent.textContent = correctAnswer;
+            answerRecent.style.backgroundColor = 'yellow';
+            answerRecent.style.borderColor = 'blue';
+            setTimeout(() => {
+                answerRecent.textContent = '';
+                answerRecent.style.backgroundColor = 'transparent';
+                answerRecent.style.borderColor = 'transparent';
+            }, 1500);
+        }
+    }
+
+    run();
+}
+
+function increaseCorrect() {
+    const correct = document.getElementById('correct');
+    let score = parseInt(correct.textContent);
+
+    correct.textContent = ++score;
+}
+
+function increaseIncorrect() {
+    const incorrect = document.getElementById('incorrect');
+    let score = parseInt(incorrect.textContent);
+
+    incorrect.textContent = ++score;
 }

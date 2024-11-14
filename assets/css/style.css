@@ -47,6 +47,10 @@ input {
 #answer-box {
     text-align: center;
 }
+#answer-box::placeholder {
+    text-align: left;
+    font-size: 0.8em;
+}
 #answer-check {
     display: block;
     margin: 5px auto 0;
@@ -54,6 +58,12 @@ input {
 #answer-recent {
     font-size: 1.5em;
     min-height: 1lh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: fit-content;
 }
 
 
