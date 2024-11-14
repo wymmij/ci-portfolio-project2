@@ -150,3 +150,19 @@ input {
 #incorrect {
     font-weight: 700;
 }
+
+
+/* ------ Media Queries */
+@media (max-height: 750px) {
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
+    #question {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #answer-recent {
+        margin: 5px auto;
+    }
+}
