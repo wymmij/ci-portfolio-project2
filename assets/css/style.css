@@ -12,6 +12,38 @@ h1 {
     font-family: "Mystery Quest", system-ui;
     font-size: 3em;
 }
+#irregular0 {
+    font-size: 1em;
+}
+#irregular1 {
+    font-size: 1.2em;
+    vertical-align: sub;
+}
+#irregular2 {
+    font-size: 0.9em;
+}
+#irregular3 {
+    font-size: 1.3em;
+    vertical-align: text-bottom;
+}
+#irregular4 {
+    font-size: 1.4em;
+    vertical-align: middle;
+}
+#irregular5 {
+    font-size: 0.8em;
+    vertical-align: text-bottom;
+}
+#irregular6 {
+    font-size: 1em;
+}
+#irregular7 {
+    font-size: 1.1em;
+    vertical-align: top;
+}
+#irregular8 {
+    font-size: 1em;
+}
 
 
 /* ------ Configuration Area */

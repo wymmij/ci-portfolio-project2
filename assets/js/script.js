@@ -1,6 +1,15 @@
 import * as conjugationDataSets from './data.js';
 
+// Fires when the HTML page has been read and parsed.
+//   1). The page's heading is styled
+//   2). Event listeners added to various elements
+//   3). Configuration option menus are built
+//   4). Configuration options set to sane default values
+//   5). Finally, a challenge is set (run)
 document.addEventListener('DOMContentLoaded', () => {
+    // set up the special title formatting
+    displayTitle();
+
     const dataSet = document.getElementById('data-set');
     const questionForms = document.getElementById('question-form');
     const answerForms = document.getElementById('answer-form');
@@ -194,6 +203,22 @@ function displayFormat(str) {
     const format = str.replace(/([a-z])([A-Z])/g, '$1 $2');
 
     return format.charAt(0).toUpperCase() + format.slice(1);
+}
+
+/**
+ * Marks up each character of the main heading with span elements and unique
+ * ids so that they can be further styled with CSS.
+ */
+function displayTitle() {
+    const heading = document.getElementById('title');
+    const title = heading.innerHTML;
+    heading.innerHTML = '';
+    for (const char in title) {
+        const s = document.createElement('span');
+        s.textContent = title[char];
+        s.setAttribute('id', 'irregular' + char);
+        heading.appendChild(s);
+    }
 }
 
 /**
