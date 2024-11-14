@@ -31,6 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // create the question and answer conjugation forms radio button groups
     buildConjugationMenus();
 
+    const conjugationForms = getForms();
+    const frm1 = conjugationForms[0];
+    const frm2 = conjugationForms[1];
+    const questionInput1 = document.getElementById(`question-${frm1}`);
+    const answerInput2 = document.getElementById(`answer-${frm2}`);
+
+    // select the first and second conjugation forms for the question and
+    // answer options respectively
+    questionForms.setAttribute('data-choice', frm1);
+    answerForms.setAttribute('data-choice', frm2);
+    questionInput1.checked = true;
+    answerInput2.checked = true;
+
     // run on page load rather than waiting to run manually
     run();
 });
@@ -133,8 +146,32 @@ function displayFormat(str) {
     return format.charAt(0).toUpperCase() + format.slice(1);
 }
 
+/**
+ * Constitutes a single ‘turn’.
+ * Randomly retrieves a question object from the current conjugation data
+ * and selects the form according to the pre-selected parameters.
+ */
 function run() {
-    //
+    const conjugationData = getConjugationData();
+    const choice = Math.floor(Math.random() * conjugationData.length);
+    const questionForms = document.getElementById('question-form');
+    const answerForms = document.getElementById('answer-form');
+    const questionChoice = questionForms.getAttribute('data-choice');
+    const answerChoice = answerForms.getAttribute('data-choice');
+    const question = document.getElementById('question');
+    const answerBox = document.getElementById('answer-box');
+
+    // clears previous input on each run
+    answerBox.value = '';
+    // ensures the answer box is selected on each run
+    answerBox.focus();
+    // displays a reminder of the expected grammatical form of the answer
+    answerBox.setAttribute('placeholder', displayFormat(answerChoice));
+
+    // stores the choice as a data attribute of the question
+    question.setAttribute('data-choice', choice);
+    // sets question text by directly retrieving it from the conjugation data
+    question.textContent = conjugationData[choice][questionChoice];
 }
 
 function checkAnswer() {
