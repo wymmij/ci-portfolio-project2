@@ -30,5 +30,41 @@
   </head>
   <body>
     <h1>irregular</h1>
+
+    <div class="parameters">
+      <div class="parameter">
+        <legend>Data Set:</legend>
+        <select name="data" id="data-set"></select>
+      </div>
+      <div class="parameter">
+        <legend>Select a trigger question:</legend>
+        <div name="question" id="question-form"></div>
+      </div>
+      <div class="parameter">
+        <legend>Select the form to be tested on:</legend>
+        <div name="answer" id="answer-form"></div>
+      </div>
+    </div>
+
+    <div class="main-area">
+      <div class="question">
+        <p id="question"></p>
+      </div>
+      <div class="answer">
+        <input type="text" id="answer-box" />
+        <button type="button" id="answer-check">Submit Answer</button>
+      </div>
+    </div>
+
+    <div class="score-area">
+      <div class="score">
+        <span>Correct:</span>
+        <span id="correct">0</span>
+      </div>
+      <div class="score">
+        <span>Incorrect:</span>
+        <span id="incorrect">0</span>
+      </div>
+    </div>
   </body>
 </html>
