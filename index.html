@@ -29,50 +29,60 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <h1 id="title">irregular</h1>
+    <header>
+      <h1 id="title">irregular</h1>
+    </header>
 
-    <div class="parameters">
-      <div class="parameter">
-        <legend>Data Set:</legend>
-        <select name="data" id="data-set" data-choice=""></select>
-      </div>
-      <div class="parameter">
-        <legend>Select a trigger question:</legend>
-        <div name="question" id="question-form" data-choice=""></div>
-      </div>
-      <div class="parameter">
-        <legend>Select the form to be tested on:</legend>
-        <div name="answer" id="answer-form" data-choice=""></div>
-      </div>
-      <div class="parameter">
-        <div>
-          <label for="answer-hide">Hide Answer:</label>
-          <input type="checkbox" id="answer-hide" />
+    <section>
+      <div class="parameters">
+        <div class="parameter">
+          <fieldset>
+            <legend>Data Set:</legend>
+            <select name="data" id="data-set" data-choice=""></select>
+          </fieldset>
+        </div>
+        <div class="parameter">
+          <fieldset>
+            <legend>Select a trigger question:</legend>
+            <div name="question" id="question-form" data-choice=""></div>
+          </fieldset>
+        </div>
+        <div class="parameter">
+          <fieldset>
+            <legend>Select the form to be tested on:</legend>
+            <div name="answer" id="answer-form" data-choice=""></div>
+          </fieldset>
+        </div>
+        <div class="parameter">
+          <div>
+            <label for="answer-hide">Hide Answer:</label>
+            <input type="checkbox" id="answer-hide" />
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="main-area">
-      <div class="question">
-        <p id="question" data-choice=""></p>
+      <div class="main-area">
+        <div class="question">
+          <p id="question" data-choice=""></p>
+        </div>
+        <div class="answer">
+          <input type="text" id="answer-box" placeholder="" />
+          <button type="button" id="answer-check">Submit Answer</button>
+          <p id="answer-recent"></p>
+        </div>
       </div>
-      <div class="answer">
-        <input type="text" id="answer-box" placeholder="" />
-        <button type="button" id="answer-check">Submit Answer</button>
-        <p id="answer-recent"></p>
-      </div>
-    </div>
 
-    <div class="score-area">
-      <div class="score">
-        <span>Correct:</span>
-        <span id="correct">0</span>
+      <div class="score-area">
+        <div class="score">
+          <span>Correct:</span>
+          <span id="correct">0</span>
+        </div>
+        <div class="score">
+          <span>Incorrect:</span>
+          <span id="incorrect">0</span>
+        </div>
       </div>
-      <div class="score">
-        <span>Incorrect:</span>
-        <span id="incorrect">0</span>
-      </div>
-    </div>
+    </section>
 
     <script type="module" src="assets/js/script.js"></script>
   </body>
