@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // runs whenever a different question trigger form is selected
     questionForms.addEventListener('change', (event) => {
         questionForms.setAttribute('data-choice', event.target.value);
+        disableForm();
+        run();
     });
 
     // runs whenever a different answer form to be tested on is selected
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const frm1 = conjugationForms[0];
     const frm2 = conjugationForms[1];
     const questionInput1 = document.getElementById(`question-${frm1}`);
+    const answerInput1 = document.getElementById(`answer-${frm1}`);
     const answerInput2 = document.getElementById(`answer-${frm2}`);
 
     // select the first and second conjugation forms for the question and
@@ -43,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     answerForms.setAttribute('data-choice', frm2);
     questionInput1.checked = true;
     answerInput2.checked = true;
+    answerInput1.disabled = true;
 
     // run on page load rather than waiting to run manually
     run();
@@ -132,6 +136,42 @@ function buildConjugationMenus() {
         inptA.setAttribute('id', `answer-${form}`);
         questionForms.appendChild(inptQ);
         answerForms.appendChild(inptA);
+    }
+}
+
+/**
+ * Disables the corresponding answer form when a new question form is selected
+ * as the trigger question.
+ */
+function disableForm() {
+    const questionForms = document.getElementById('question-form');
+    const answerForms = document.getElementById('answer-form');
+    const questionChoice = questionForms.getAttribute('data-choice');
+    const answerChoice = answerForms.getAttribute('data-choice');
+
+    // enables the currently disabled #answer-form input element
+    const disabledCur = document.querySelector('input:disabled');
+    disabledCur.disabled = false;
+
+    // disables the #answer-form input element corresponding to the newly-checked
+    // #question-form input element
+    const disabledNew = document.getElementById(`answer-${questionChoice}`);
+    disabledNew.disabled = true;
+
+    // if the newly-checked question form is the same form as the answer form
+    // currently checked, then:
+    //   1). the #answer-form data-choice attribute will have to be updated
+    //   2). a new answer form will have to be checked
+    if (answerChoice === questionChoice) {
+        const conjugationForms = getForms();
+        let idx = conjugationForms.findIndex((x) => x === answerChoice);
+        const lastIdx = conjugationForms.length - 1;
+        idx === lastIdx ? (idx = 0) : ++idx;
+        const form = conjugationForms[idx];
+        // 1).
+        answerForms.setAttribute('data-choice', form);
+        // 2).
+        document.getElementById(`answer-${form}`).checked = true;
     }
 }
 
