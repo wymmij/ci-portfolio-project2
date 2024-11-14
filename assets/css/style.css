@@ -51,6 +51,10 @@ input {
     display: block;
     margin: 5px auto 0;
 }
+#answer-recent {
+    font-size: 1.5em;
+    min-height: 1lh;
+}
 
 
 /* ------ Score Area */
