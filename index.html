@@ -1,89 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Title -->
-    <title>irregular</title>
-    <!-- Favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="assets/favicon/site.webmanifest" />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1 id="title">irregular</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <section>
-      <div class="parameters">
-        <div class="parameter">
-          <fieldset>
-            <legend>Data Set:</legend>
-            <select name="data" id="data-set" data-choice=""></select>
-          </fieldset>
-        </div>
-        <div class="parameter">
-          <fieldset>
-            <legend>Select a trigger question:</legend>
-            <div name="question" id="question-form" data-choice=""></div>
-          </fieldset>
-        </div>
-        <div class="parameter">
-          <fieldset>
-            <legend>Select the form to be tested on:</legend>
-            <div name="answer" id="answer-form" data-choice=""></div>
-          </fieldset>
-        </div>
-        <div class="parameter">
-          <div>
-            <label for="answer-hide">Hide Answer:</label>
-            <input type="checkbox" id="answer-hide" />
-          </div>
+  <!-- Title -->
+  <title>irregular</title>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1 id="title">irregular</h1>
+  </header>
+
+  <section>
+    <div class="parameters">
+      <div class="parameter">
+        <fieldset>
+          <legend>Data Set:</legend>
+          <select name="data" id="data-set" data-choice=""></select>
+        </fieldset>
+      </div>
+      <div class="parameter">
+        <fieldset>
+          <legend>Select a trigger question:</legend>
+          <div id="question-form" data-choice=""></div>
+        </fieldset>
+      </div>
+      <div class="parameter">
+        <fieldset>
+          <legend>Select the form to be tested on:</legend>
+          <div id="answer-form" data-choice=""></div>
+        </fieldset>
+      </div>
+      <div class="parameter">
+        <div>
+          <label for="answer-hide">Hide Answer:</label>
+          <input type="checkbox" id="answer-hide">
         </div>
       </div>
+    </div>
 
-      <div class="main-area">
-        <div class="question">
-          <p id="question" data-choice=""></p>
-        </div>
-        <div class="answer">
-          <input type="text" id="answer-box" placeholder="" />
-          <button type="button" id="answer-check">Submit Answer</button>
-          <p id="answer-recent"></p>
-        </div>
+    <div class="main-area">
+      <div class="question">
+        <p id="question" data-choice=""></p>
       </div>
-
-      <div class="score-area">
-        <div class="score">
-          <span>Correct:</span>
-          <span id="correct">0</span>
-        </div>
-        <div class="score">
-          <span>Incorrect:</span>
-          <span id="incorrect">0</span>
-        </div>
+      <div class="answer">
+        <input type="text" id="answer-box" placeholder="">
+        <button type="button" id="answer-check">Submit Answer</button>
+        <p id="answer-recent"></p>
       </div>
-    </section>
+    </div>
 
-    <script type="module" src="assets/js/script.js"></script>
-  </body>
+    <div class="score-area">
+      <div class="score">
+        <span>Correct:</span>
+        <span id="correct">0</span>
+      </div>
+      <div class="score">
+        <span>Incorrect:</span>
+        <span id="incorrect">0</span>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="assets/js/script.js"></script>
+</body>
+
 </html>
