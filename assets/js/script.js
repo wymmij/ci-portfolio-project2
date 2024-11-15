@@ -138,11 +138,13 @@ function buildConjugationMenus() {
 
     for (const form of conjugationForms) {
         // <label> elements with 'for' attributes
-        let lbl = document.createElement('label');
-        lbl.textContent = displayFormat(form);
-        lbl.setAttribute('for', form);
-        questionForms.appendChild(lbl);
-        answerForms.appendChild(lbl.cloneNode(true));
+        let lblQ = document.createElement('label');
+        lblQ.textContent = displayFormat(form);
+        let lblA = lblQ.cloneNode(true);
+        lblQ.setAttribute('for', `question-${form}`);
+        lblA.setAttribute('for', `answer-${form}`);
+        questionForms.appendChild(lblQ);
+        answerForms.appendChild(lblA);
 
         // <input> elements with 'type', 'value', 'name' and 'id' attributes
         let inptQ = document.createElement('input');
